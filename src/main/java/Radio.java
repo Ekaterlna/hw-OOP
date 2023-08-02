@@ -1,9 +1,15 @@
+import lombok.Getter;
+
 public class Radio {
+    @Getter
     private int maxNumber;
+    @Getter
     private int minNumber = 0;
+    @Getter
     private int currentNumber;
     private int maxVolume = 100;
     private int minVolume = 0;
+    @Getter
     private int currentVolume;
 
     public Radio() {
@@ -17,21 +23,7 @@ public class Radio {
         this.maxNumber = maxNumber - 1;
     }
 
-    public int getVolume() {
-        return currentVolume;
-    }
 
-    public int getCurrentNumber() {
-        return currentNumber;
-    }
-
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    public int getMinNumber() {
-        return minNumber;
-    }
 
     public void setCurrentNumber(int currentNumber) {
         if (currentNumber < minNumber) {
