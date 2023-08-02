@@ -88,7 +88,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
 
-        int actual = radio.getVolume();
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -100,7 +100,7 @@ public class RadioTest {
 
         radio.volumeDown();
 
-        int actual = radio.getVolume();
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -112,7 +112,7 @@ public class RadioTest {
 
         radio.volumeUp();
 
-        int actual = radio.getVolume();
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 }

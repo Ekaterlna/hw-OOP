@@ -17,7 +17,7 @@ public class Radio {
         this.maxNumber = maxNumber - 1;
     }
 
-    public int getVolume() {
+    public int getCurrentVolume() {
         return currentVolume;
     }
 
