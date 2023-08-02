@@ -1,59 +1,75 @@
+import lombok.Getter;
+
 public class Radio {
+    @Getter
+    private int maxNumber;
+    @Getter
+    private int minNumber = 0;
+    @Getter
     private int currentNumber;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    @Getter
     private int currentVolume;
 
-    public int getCurrentNumber() {
-        return currentNumber;
+    public Radio() {
+        this.maxNumber = 9;
     }
 
-    public void setCurrentNumber(int newCurrentNumber) {
-        if (newCurrentNumber < 0) {
+    public Radio(int maxNumber) {
+        if (maxNumber <= 0) {
             return;
         }
-        if (newCurrentNumber > 9) {
+        this.maxNumber = maxNumber - 1;
+    }
+
+
+
+    public void setCurrentNumber(int currentNumber) {
+        if (currentNumber < minNumber) {
             return;
         }
-        currentNumber = newCurrentNumber;
+        if (currentNumber > maxNumber) {
+            return;
+        }
+        this.currentNumber = currentNumber;
     }
 
     public void nextNumber() {
-        if(currentNumber == 9) {
-            currentNumber = 0;
+        if (currentNumber == maxNumber) {
+            currentNumber = minNumber;
         } else {
             currentNumber = currentNumber + 1;
         }
     }
 
     public void prevNumber() {
-        if(currentNumber == 0) {
-            currentNumber = 9;
+        if (currentNumber == minNumber) {
+            currentNumber = maxNumber;
         } else {
             currentNumber = currentNumber - 1;
         }
     }
 
-    public int getVolume() {
-        return currentVolume;
-    }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (currentVolume > maxVolume) {
             return;
         }
-        currentVolume = newCurrentVolume;
+        this.currentVolume = currentVolume;
     }
 
     public void volumeDown() {
-        if (currentVolume > 0){
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
 
     public void volumeUp() {
-        if (currentVolume < 100){
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
