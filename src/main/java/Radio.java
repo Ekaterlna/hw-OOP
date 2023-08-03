@@ -10,11 +10,11 @@ public class Radio {
         this.maxNumber = 9;
     }
 
-    public Radio(int maxNumber) {
-        if (maxNumber <= 0) {
+    public Radio(int numberStations) {
+        if (numberStations <= 0) {
             return;
         }
-        this.maxNumber = maxNumber - 1;
+        this.maxNumber = numberStations - 1;
     }
 
     public int getCurrentVolume() {
